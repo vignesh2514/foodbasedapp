@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_home_button"
+            android:title="Home" />
+        <item
+            android:id="@+id/nav_trending"
+            android:icon="@drawable/linechart"
+            android:title="Trending" />
+        <item
+            android:id="@+id/nav_fav"
+            android:icon="@drawable/ic_favorite_border_black_24dp"
+            android:title="My Favorites" />
+        <item
+            android:id="@+id/nav_viewed"
+            android:icon="@drawable/ic_visibility_black_24dp"
+            android:title="Recently Viewed" />
+    </group>
+
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/nav_fb"
+                android:icon="@drawable/ic_facebook"
+                android:title="Facebook" />
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Share" />
+            <item
+                android:id="@+id/nav_about"
+                android:icon="@drawable/ic_male_user_shadow"
+                android:title="About Us" />
+        </menu>
+    </item>
+
+</menu>

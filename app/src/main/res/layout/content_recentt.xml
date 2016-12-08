@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_trending"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.v7ench.askchitvish.RecentlyViewed"
+    tools:showIn="@layout/activity_ttc"
+ >
+
+
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        app:srcCompat="@drawable/recently"
+        android:visibility="gone"
+        android:id="@+id/imageView2"
+        android:layout_marginTop="81dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:text="You have no recently viewed items"
+        android:textSize="15sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView2"
+        android:textColor="#2d2d2d"
+        android:visibility="gone"
+        android:layout_marginTop="12dp"
+        android:id="@+id/textViewds"
+        android:layout_alignLeft="@+id/imageView2"
+        android:layout_alignStart="@+id/imageView2"
+        android:layout_alignRight="@+id/imageView2"
+        android:layout_alignEnd="@+id/imageView2"
+        android:textAlignment="center" />
+    <ListView
+        android:id="@+id/sub_cat"
+        android:divider="@null"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+</RelativeLayout>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/incre"
+      android:title="Zoom In"
+        android:orderInCategory="100"
+        android:icon="@drawable/ic_incc"
+         />
+    <item
+        android:id="@+id/decre"
+        android:title="Zoom Out"
+        android:orderInCategory="100"
+        android:icon="@drawable/ic_incc"
+        />
+</menu>

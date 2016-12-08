@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#c3373d</color>
+    <color name="colorPrimaryDark">#971627</color>
+    <color name="colorAccent">#c3373d</color>
+    <color name="fslide">#ffca00</color>
+    <color name="sslider">#44b654</color>
+    <color name="tslider">#34a3da</color>
+    <color name="indicator_unselected">#4D000000</color>
+</resources>

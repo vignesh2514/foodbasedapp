@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">AskChitVish</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_sub_categ">Sub Category</string>
+    <string name="title_activity_details">Details Activity</string>
+    <string name="title_activity_you_tub">YouTube Activity</string>
+    <string name="title_activity_trending">Trending</string>
+    <string name="title_activity_recently_viewed">RecentlyViewed</string>
+    <string name="title_activity_my_favourites">My Favourites</string>
+    <string name="title_activity_aboutus">About Us</string>
+    <string name="aboutchitvish">Chitvish is now a household name across the globe. Her countless recipes have taken the culinary world by storm.Each and every mouth watering recipe of hers is tried meticulously by a lonely bride in Alaska or Australia living faraway from her dear parents. When she is able to cook a dish just the way her mother did thanks to chitvish\'s recipes, her joy knows no bounds and her homesickness vanishes instantly. \n Despite her strong South Indian roots, Chitvish\'s recipes transcent national and international barriers. Be it the typically Tamilian akkaravadisal, the Gujarai dhokla, the Rajasthani Lapsi or the Mexican fajita, her avid followers just make a beeline to her recipes whenever they want to make it. \'Ask Chitvish\' is the mantra chanted by thousands day in and day out!!</string>
+</resources>
