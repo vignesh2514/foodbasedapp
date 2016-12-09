@@ -4,14 +4,18 @@
 
     <item
         android:id="@+id/incre"
-      android:title="Zoom In"
+        android:title="Zoom In"
         android:orderInCategory="100"
-        android:icon="@drawable/ic_incc"
+       app:showAsAction="never"
+
          />
     <item
         android:id="@+id/decre"
         android:title="Zoom Out"
         android:orderInCategory="100"
-        android:icon="@drawable/ic_incc"
+        app:showAsAction="never"
         />
+
 </menu>
+
+

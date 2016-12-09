@@ -15,6 +15,10 @@
             android:icon="@drawable/ic_favorite_border_black_24dp"
             android:title="My Favorites" />
         <item
+            android:id="@+id/nav_nrep"
+            android:icon="@drawable/ic_cookie"
+            android:title="New Recipe" />
+        <item
             android:id="@+id/nav_viewed"
             android:icon="@drawable/ic_visibility_black_24dp"
             android:title="Recently Viewed" />

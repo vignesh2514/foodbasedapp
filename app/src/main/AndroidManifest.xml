@@ -31,9 +31,9 @@
         </activity>
         <activity
             android:name=".SubCateg"
-            android:screenOrientation="portrait"
             android:label="@string/title_activity_sub_categ"
             android:parentActivityName=".HomeScreen"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -41,9 +41,9 @@
         </activity>
         <activity
             android:name=".DetailsActivity"
-            android:screenOrientation="portrait"
             android:label="@string/title_activity_details"
             android:parentActivityName=".HomeScreen"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -51,9 +51,9 @@
         </activity>
         <activity
             android:name=".YouTubActivity"
-            android:screenOrientation="portrait"
             android:label="@string/title_activity_you_tub"
             android:parentActivityName=".DetailsActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -65,28 +65,46 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Trending"
-            android:screenOrientation="portrait"
             android:label="@string/title_activity_trending"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".RecentlyViewed"
-            android:screenOrientation="portrait"
             android:label="@string/title_activity_recently_viewed"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".MyFavourites"
-            android:screenOrientation="portrait"
             android:label="@string/title_activity_my_favourites"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Aboutus"
-            android:screenOrientation="portrait"
             android:label="@string/title_activity_aboutus"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Splash2"
             android:screenOrientation="portrait"
-            android:theme="@style/Spp">
-
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Splash2"
+            android:screenOrientation="portrait"
+            android:theme="@style/Spp" />
+        <activity
+            android:name=".Newrecipe"
+            android:label="@string/title_activity_newrecipe"
+            android:parentActivityName=".HomeScreen"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.v7ench.askchitvish.HomeScreen" />
+        </activity>
+        <activity
+            android:name=".Imageload"
+            android:label="@string/title_activity_imageload"
+            android:parentActivityName=".DetailsActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.v7ench.askchitvish.DetailsActivity" />
         </activity>
     </application>
 

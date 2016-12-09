@@ -13,7 +13,7 @@ import android.view.View;
 import android.widget.TextView;
 
 public class Aboutus extends AppCompatActivity {
-TextView aab;
+TextView tt1,tt2,tt3,tt4,tt5,tt6;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,7 +27,13 @@ TextView aab;
                 onBackPressed();
             }
         });
-        aab=(TextView) findViewById(R.id.textViewccr);
+        tt1=(TextView) findViewById(R.id.textview1);
+        tt2=(TextView) findViewById(R.id.textview2);
+        tt3=(TextView) findViewById(R.id.textview3);
+        tt4=(TextView) findViewById(R.id.textview4);
+        tt5=(TextView) findViewById(R.id.textview5);
+        tt6=(TextView) findViewById(R.id.textview6);
+
     }
     @Override
     public void onBackPressed() {
@@ -58,13 +64,24 @@ TextView aab;
         int id = item.getItemId();
         if (id == R.id.incre) {
 
-            aab.setTextSize(TypedValue.COMPLEX_UNIT_PX,aab.getTextSize()+1);
+            tt1.setTextSize(TypedValue.COMPLEX_UNIT_PX,tt1.getTextSize()+2);
+            tt2.setTextSize(TypedValue.COMPLEX_UNIT_PX,tt2.getTextSize()+2);
+            tt3.setTextSize(TypedValue.COMPLEX_UNIT_PX,tt3.getTextSize()+2);
+            tt4.setTextSize(TypedValue.COMPLEX_UNIT_PX,tt4.getTextSize()+2);
+            tt5.setTextSize(TypedValue.COMPLEX_UNIT_PX,tt5.getTextSize()+2);
+            tt6.setTextSize(TypedValue.COMPLEX_UNIT_PX,tt6.getTextSize()+2);
 
         }
         else if (id == R.id.decre)
         {
 
-            aab.setTextSize(TypedValue.COMPLEX_UNIT_PX,aab.getTextSize()-1);
+            tt1.setTextSize(TypedValue.COMPLEX_UNIT_PX,tt1.getTextSize()-2);
+            tt2.setTextSize(TypedValue.COMPLEX_UNIT_PX,tt2.getTextSize()-2);
+            tt3.setTextSize(TypedValue.COMPLEX_UNIT_PX,tt3.getTextSize()-2);
+            tt4.setTextSize(TypedValue.COMPLEX_UNIT_PX,tt4.getTextSize()-2);
+            tt5.setTextSize(TypedValue.COMPLEX_UNIT_PX,tt5.getTextSize()-2);
+            tt6.setTextSize(TypedValue.COMPLEX_UNIT_PX,tt6.getTextSize()-2);
+
 
         }
 

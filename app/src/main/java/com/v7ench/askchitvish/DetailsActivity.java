@@ -45,9 +45,8 @@ public class DetailsActivity extends AppCompatActivity {
 TextView topic_na,shor,ingre,met;
     TextView tad,tvd,timad,tsidi,ttv;
     MediaPlayer mediaplayer;
-    ImageView adi,vdi,favori,iim,maima;
+    ImageView adi,vdi,favori,iim;
     private Animator mCurrentAnimator;
-
     private int mShortAnimationDuration;
     ImageButton ddns;
     private SQLiteHandler db;
@@ -78,7 +77,7 @@ ttv=(TextView) findViewById(R.id.ttvb);
         met=(TextView) findViewById(R.id.methditext);
 adi=(ImageView) findViewById(audi);
 vdi=(ImageView) findViewById(R.id.vide);
-        maima=(ImageView) findViewById(R.id.imav);
+      //  maima=(ImageView) findViewById(R.id.imav);
         iim=(ImageView) findViewById(R.id.lik);
         favori=(ImageView) findViewById(R.id.imagee);
 tad=(TextView) findViewById(R.id.taudi);
@@ -174,7 +173,12 @@ iim.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View view) {
         String aacg=timad.getText().toString();
-        zoomImageFromThumb(iim, aacg);
+        Intent intent=new Intent(DetailsActivity.this,Imageload.class);
+        intent.putExtra("ima",aacg);
+        intent.putExtra("topi",topic_na.getText().toString());
+        startActivity(intent);
+
+       // zoomImageFromThumb(iim, aacg);
 
     }
 });
@@ -219,7 +223,6 @@ adi.setOnClickListener(new View.OnClickListener() {
 
     }
 
-
     }
 });
 
@@ -238,7 +241,7 @@ tsidi.setText(sid);
     timad.setText(imag);
 
     ttv.setText(favonn);
-    Picasso.with(this).load(imag).fit().error(R.drawable.load).fit().into(maima);
+//    Picasso.with(this).load(imag).fit().error(R.drawable.load).fit().into(maima);
 
 }
     @Override
@@ -464,14 +467,13 @@ Map<String,String> params=new HashMap<String, String>();
         int id = item.getItemId();
         if (id == R.id.incre) {
 
-            ingre.setTextSize(TypedValue.COMPLEX_UNIT_PX,ingre.getTextSize()+1);
-            met.setTextSize(TypedValue.COMPLEX_UNIT_PX,met.getTextSize()+1);
+            ingre.setTextSize(TypedValue.COMPLEX_UNIT_PX,ingre.getTextSize()+2);
+            met.setTextSize(TypedValue.COMPLEX_UNIT_PX,met.getTextSize()+2);
         }
         else if (id == R.id.decre)
         {
-
-            ingre.setTextSize(TypedValue.COMPLEX_UNIT_PX,ingre.getTextSize()-1);
-            met.setTextSize(TypedValue.COMPLEX_UNIT_PX,met.getTextSize()-1);
+            ingre.setTextSize(TypedValue.COMPLEX_UNIT_PX,ingre.getTextSize()-2);
+            met.setTextSize(TypedValue.COMPLEX_UNIT_PX,met.getTextSize()-2);
             }
 
         return true;

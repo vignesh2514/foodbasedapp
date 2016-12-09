@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <menu xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+        <item android:id="@+id/action_search"
+            android:icon="@drawable/ic_action_video"
+            android:title="video"
+            app:showAsAction="ifRoom"/>
+
+        <!-- Location Found -->
+        <item android:id="@+id/action_location_found"
+            android:icon="@drawable/ic_action_play"
+            android:title="audio"
+            app:showAsAction="ifRoom" />
+
+
+        <!-- Help -->
+        <item android:id="@+id/incremen"
+            android:title="Zoom in"
+            app:showAsAction="never"/>
+
+        <!-- Check updates -->
+        <item android:id="@+id/decremen"
+            android:title="Zoom out"
+            app:showAsAction="never" />
+
+</menu>

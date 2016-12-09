@@ -21,9 +21,11 @@
     <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
         <item name="android:windowBackground">@drawable/splas</item>
     </style>
+
     <style name="Spp" parent="Theme.AppCompat.NoActionBar">
         <item name="android:windowBackground">@drawable/ssps</item>
     </style>
+
     <style name="hhg" parent="@style/TextAppearance.Widget.AppCompat.Toolbar.Title">
         <item name="android:textSize">15sp</item>
     </style>

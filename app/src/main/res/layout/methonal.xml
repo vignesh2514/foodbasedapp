@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
     <TextView
-        android:text="Methods"
+        android:text="Method"
         android:gravity="center"
         android:textColor="#2d2d2d"
-        android:textSize="18dp"
+        android:textSize="18sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textVi4"
@@ -26,9 +27,9 @@
         app:cardElevation="2dp"
         android:layout_height="wrap_content" >
         <TextView
-            android:text="TextView"
+
             android:padding="5dp"
-            android:textSize="15dp"
+                     android:textSize="15sp"
             android:textColor="#2d2d2d"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

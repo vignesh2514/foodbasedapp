@@ -13,4 +13,6 @@
     <string name="title_activity_my_favourites">My Favourites</string>
     <string name="title_activity_aboutus">About Us</string>
     <string name="aboutchitvish">Chitvish is now a household name across the globe. Her countless recipes have taken the culinary world by storm.Each and every mouth watering recipe of hers is tried meticulously by a lonely bride in Alaska or Australia living faraway from her dear parents. When she is able to cook a dish just the way her mother did thanks to chitvish\'s recipes, her joy knows no bounds and her homesickness vanishes instantly. \n Despite her strong South Indian roots, Chitvish\'s recipes transcent national and international barriers. Be it the typically Tamilian akkaravadisal, the Gujarai dhokla, the Rajasthani Lapsi or the Mexican fajita, her avid followers just make a beeline to her recipes whenever they want to make it. \'Ask Chitvish\' is the mantra chanted by thousands day in and day out!!</string>
+    <string name="title_activity_newrecipe">New Recipe</string>
+    <string name="title_activity_imageload">Imageload</string>
 </resources>

@@ -177,7 +177,7 @@ public class HomeScreen extends AppCompatActivity
                     }
                 });
             } else {
-                Toast.makeText(getApplicationContext(), "Internet connection is too slow for process.Please wait", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Internet connection is too slow for process.Please try again later", Toast.LENGTH_SHORT).show();
             }
         }
 
@@ -282,12 +282,6 @@ holder.menuname=(TextView) convertView.findViewById(R.id.cat_txt);
             }
         return super.onKeyDown(keyCode, event);
     }
-
-
-
-
-
-
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -307,6 +301,11 @@ holder.menuname=(TextView) convertView.findViewById(R.id.cat_txt);
         }
         else if (id == R.id.nav_viewed) {
             Intent intent = new Intent(HomeScreen.this,RecentlyViewed.class);
+            startActivity(intent);
+        }
+        else if (id==R.id.nav_nrep)
+        {
+            Intent intent = new Intent(HomeScreen.this,Newrecipe.class);
             startActivity(intent);
         }
         else if (id == R.id.nav_share) {

@@ -12,8 +12,8 @@
 
     <ImageView
         android:layout_width="wrap_content"
-        android:layout_height="250dp"
-        android:background="@drawable/about"
+        android:layout_height="230dp"
+        android:background="@drawable/about_rev"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:id="@+id/imageView3" />
@@ -31,20 +31,147 @@
             android:layout_height="wrap_content"
           android:padding="5dp"
             android:background="#ffffff"
-
             android:layout_marginTop="19dp">
-
-            <TextView
-                android:text="@string/aboutchitvish"
-                android:textSize="14sp"
-                          android:textColor="#353535"
+            <LinearLayout
+                android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/textViewccr"
-                android:layout_below="@+id/imageView3"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="11dp" />
+                android:padding="3dp"
+                android:layout_height="wrap_content">
 
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/chef_rev"
+                    android:layout_gravity="top"
+                    android:id="@+id/imageview1"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:text="Chitvish is now a household name across the globe. Her countless recipes have taken the culinary world by storm."
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#2d2d2d"
+                android:padding="3dp"
+                    android:id="@+id/textview1"
+                    android:layout_weight="1" />
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:padding="3dp"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/chef_rev"
+                    android:layout_gravity="top"
+                    android:id="@+id/imageview2"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:text="Each and every mouth watering recipe of hers is tried meticulously by a lonely bride in Alaska or Australia living faraway from her dear parents. "
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#2d2d2d"
+                    android:padding="3dp"
+                    android:id="@+id/textview2"
+                    android:layout_weight="1" />
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:padding="3dp"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/chef_rev"
+                    android:layout_gravity="top"
+                    android:id="@+id/imageview3"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:text="When she is able to cook a dish just the way her mother did thanks to chitvish's recipes, her joy knows no bounds and her homesickness vanishes instantly."
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#2d2d2d"
+
+                    android:padding="3dp"
+                    android:id="@+id/textview3"
+                    android:layout_weight="1" />
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:padding="3dp"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/chef_rev"
+                    android:layout_gravity="top"
+                    android:id="@+id/imageview4"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:text="Despite her strong South Indian roots, Chitvish's recipes transcent national and international barriers."
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#2d2d2d"
+
+                    android:padding="3dp"
+                    android:id="@+id/textview4"
+                    android:layout_weight="1" />
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:padding="3dp"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/chef_rev"
+                    android:layout_gravity="top"
+                    android:id="@+id/imageview5"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:text="Be it the typically Tamilian akkaravadisal, the Gujarai dhokla, the Rajasthani Lapsi or the Mexican fajita, her avid followers just make a beeline to her recipes whenever-they want to make it."
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#2d2d2d"
+                    android:padding="3dp"
+                    android:id="@+id/textview5"
+                    android:layout_weight="1" />
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:padding="3dp"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/chef_rev"
+                    android:layout_gravity="top"
+                    android:id="@+id/imageview6"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:text="'Ask Chitvish' is the mantra chanted by thousands day in and day out!!"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#2d2d2d"
+                    android:padding="3dp"
+                    android:id="@+id/textview6"
+                    android:layout_weight="1" />
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 
