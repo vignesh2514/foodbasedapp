@@ -245,6 +245,10 @@ tsidi.setText(sid);
     public void onBackPressed() {
         super.onBackPressed();
         mediaplayer.stop();
+        Intent intent=new Intent(DetailsActivity.this,HomeScreen.class);
+        startActivity(intent);
+        finish();
+
     }
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event)  {
