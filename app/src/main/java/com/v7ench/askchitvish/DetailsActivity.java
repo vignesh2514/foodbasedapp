@@ -4,7 +4,6 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Point;
 import android.graphics.Rect;
@@ -56,7 +55,7 @@ TextView topic_na,shor,ingre,met;
         setContentView(R.layout.activity_details);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        final Context context=this;
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         topic_na=(TextView) findViewById(R.id.sivna);
