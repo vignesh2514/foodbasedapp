@@ -49,6 +49,7 @@ TextView topic_na,shor,ingre,met;
     private int mShortAnimationDuration;
     ImageButton ddns;
     private SQLiteHandler db;
+    String URL="http://gettalentsapp.com/vignesh2514/askchitvish/androadmin/sub_catog_details.php";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -89,19 +90,9 @@ tsidi=(TextView) findViewById(R.id.sidi);
             JSONObject myJsonObj = null;
             myJsonObj = new JSONObject(strObj);
             String sid = myJsonObj.getString("id");
-                   String topic_name = myJsonObj.getString("topic_name");
-            String short_desc = myJsonObj.getString("short_desc");
-            String favonn=myJsonObj.getString("favon");
-            String ingerdi=myJsonObj.getString("ingredients1");
-            String methi=myJsonObj.getString("method1");
-            String adio=myJsonObj.getString("audio");
-            String vide=myJsonObj.getString("video");
-            String imag=myJsonObj.getString("images");
 
-
-            addtextinview(sid,topic_name,short_desc,ingerdi,methi,adio,vide,imag,favonn);
+            getall(sid,uid);
         }
-
         catch (JSONException e) {
             e.printStackTrace();
         }
@@ -192,8 +183,7 @@ adi.setOnClickListener(new View.OnClickListener() {
       {
           mediaplayer.start();
           adi.setImageResource(R.drawable.stop);
-              showingFirst[0] = false;
-
+          showingFirst[0] = false;
           try {
               mediaplayer.setDataSource(acheck);
               mediaplayer.prepare();
@@ -226,13 +216,52 @@ adi.setOnClickListener(new View.OnClickListener() {
         String sidin=tsidi.getText().toString();
         recme(uid,sidin);
     }
+
+    public void getall(final String sid, final String uid)
+    {
+        StringRequest stringRequest =new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+                    JSONObject jObj = new JSONObject(response);
+                    JSONObject user = jObj.getJSONObject("result");
+                    String topic_name = user.getString("topic_name");
+                    String short_desc = user.getString("short_desc");
+                    String favonn=user.getString("favon");
+                    String ingerdi=user.getString("ingredients1");
+                    String methi=user.getString("method1");
+                    String adio=user.getString("audio");
+                    String vide=user.getString("video");
+                    String imag=user.getString("images");
+                    addtextinview(sid,topic_name,short_desc,ingerdi,methi,adio,vide,imag,favonn);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        }){
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String,String> params = new HashMap<String,String>();
+                params.put("id",sid);
+                params.put("uid",uid);
+                return params;
+            }
+        };
+AppController.getInstance().addToRequestQueue(stringRequest);
+    }
+
 public void addtextinview(String sid,String topic_name, String short_desc, String ingerdi, String methi,String adio,String vide, String imag,String favonn)
 {
     topic_na.setText(topic_name);
     //shor.setText(short_desc);
 tsidi.setText(sid);
     ingre.setText(ingerdi);
-
     String[] parts = methi.split("\\.",3); // escape .
     String part1 = parts[0]+parts[1];
     String part2 = parts[2];
