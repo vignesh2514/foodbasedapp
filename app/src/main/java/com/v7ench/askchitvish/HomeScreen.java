@@ -74,7 +74,7 @@ public class HomeScreen extends AppCompatActivity
         toggle.syncState();
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        String url="http://vigneshintech.tk/askchitvish/androidadmin/catog.php";
+        String url="http://gettalentsapp.com/vignesh2514/askchitvish/androadmin/catog.php";
         new JSONTask().execute(url);
     }
     public static String FACEBOOK_URL = "https://www.facebook.com/askchitvish/";
@@ -90,7 +90,8 @@ public class HomeScreen extends AppCompatActivity
             } else { //older versions of fb app
                 return "fb://page/" + FACEBOOK_PAGE_ID;
             }
-        } catch (PackageManager.NameNotFoundException e) {
+        }
+        catch (PackageManager.NameNotFoundException e) {
             return FACEBOOK_URL; //normal web url
         }
     }
@@ -162,11 +163,9 @@ public class HomeScreen extends AppCompatActivity
             super.onPostExecute(movieModelList);
             dialog.dismiss();
             if(movieModelList != null) {
-
                 MovieAdapter adapter = new MovieAdapter(getApplicationContext(), R.layout.list_categorie, movieModelList);
                 cate_list.setAdapter(adapter);
                 adapter.notifyDataSetChanged();
-
                 cate_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

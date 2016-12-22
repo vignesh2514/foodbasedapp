@@ -62,7 +62,7 @@ public class Trending extends AppCompatActivity {
         db = new SQLiteHandler(getApplicationContext());
         HashMap<String, String> user = db.getUserDetails();
         final String uid = user.get("uid");
-        String url="http://vigneshintech.tk/askchitvish/androidadmin/aac.php?uid="+uid;
+        String url="http://gettalentsapp.com/vignesh2514/askchitvish/androadmin/aac.php?uid="+uid;
         new JSONTask().execute(url);
 
     }

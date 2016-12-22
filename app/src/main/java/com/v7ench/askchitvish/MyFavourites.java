@@ -63,7 +63,7 @@ public class MyFavourites extends AppCompatActivity {
         db = new SQLiteHandler(getApplicationContext());
         HashMap<String, String> user = db.getUserDetails();
         final String uid = user.get("uid");
-        String url="http://vigneshintech.tk/askchitvish/androidadmin/favouri.php?uid="+uid;
+        String url="http://gettalentsapp.com/vignesh2514/askchitvish/androadmin/favouri.php?uid="+uid;
         new JSONTask().execute(url);
 
     }

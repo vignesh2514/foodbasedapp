@@ -31,7 +31,9 @@ aacv=(ImageView) findViewById(R.id.iimmcc);
         String image = intent.getStringExtra("ima");
         String topic = intent.getStringExtra("topi");
         setTitle(topic);
-        Picasso.with(this).load(image).fit().error(R.drawable.load).fit().into(aacv);
+        String[] parts = image.split(","); // escape .
+        String part1 = parts[0];
+        Picasso.with(this).load(part1).fit().error(R.drawable.load).fit().into(aacv);
     }
     @Override
     public void onBackPressed() {

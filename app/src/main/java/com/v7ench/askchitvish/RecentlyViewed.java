@@ -61,7 +61,7 @@ public class RecentlyViewed extends AppCompatActivity {
         db = new SQLiteHandler(getApplicationContext());
         HashMap<String, String> user = db.getUserDetails();
         final String uid = user.get("uid");
-        String url="http://vigneshintech.tk/askchitvish/androidadmin/recentlist.php?uid="+uid;
+        String url="http://gettalentsapp.com/vignesh2514/askchitvish/androadmin/recentlist.php?uid="+uid;
         new JSONTask().execute(url);
 
     }
@@ -136,7 +136,6 @@ public class RecentlyViewed extends AppCompatActivity {
             ccb=(ImageView) findViewById(R.id.imageView2);
           TextView aadf=(TextView) findViewById(R.id.textViewds);
             if(movieModelList != null) {
-
                 MovieAdapter adapter = new MovieAdapter(getApplicationContext(), R.layout.list_cubcate, movieModelList);
                 subcat_list.setAdapter(adapter);
                 adapter.notifyDataSetChanged();

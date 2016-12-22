@@ -56,7 +56,7 @@ public class SubCateg extends AppCompatActivity {
         db = new SQLiteHandler(getApplicationContext());
         HashMap<String, String> user = db.getUserDetails();
         final String uid = user.get("uid");
-        String url="http://vigneshintech.tk/askchitvish/androidadmin/sub_catog.php?catg_id="+cid+"&uid="+uid;
+        String url="http://gettalentsapp.com/vignesh2514/askchitvish/androadmin/sub_catog.php?catg_id="+cid+"&uid="+uid;
         new JSONTask().execute(url);
 
     }

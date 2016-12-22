@@ -9,6 +9,7 @@ import android.os.Parcelable;
 
 public class Subcategory implements Parcelable{
     private String id;
+    private String catg_id;
     private String topic_name;
     private String short_desc;
     private String ingredients1;
@@ -28,6 +29,14 @@ public class Subcategory implements Parcelable{
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getCatg_id() {
+        return catg_id;
+    }
+
+    public void setCatg_id(String catg_id) {
+        this.catg_id = catg_id;
     }
 
     public String getTopic_name() {
@@ -132,6 +141,7 @@ public class Subcategory implements Parcelable{
 
     protected Subcategory(Parcel in) {
         id = in.readString();
+        catg_id = in.readString();
         topic_name = in.readString();
         short_desc = in.readString();
         ingredients1 = in.readString();
@@ -149,6 +159,7 @@ public class Subcategory implements Parcelable{
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(id);
+        dest.writeString(catg_id);
         dest.writeString(topic_name);
         dest.writeString(short_desc);
         dest.writeString(ingredients1);

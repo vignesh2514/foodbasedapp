@@ -55,9 +55,7 @@ TextView topic_na,shor,ingre,met;
         setContentView(R.layout.activity_details);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
         topic_na=(TextView) findViewById(R.id.sivna);
 //        shor=(TextView) findViewById(R.id.sh);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -234,11 +232,14 @@ public void addtextinview(String sid,String topic_name, String short_desc, Strin
     //shor.setText(short_desc);
 tsidi.setText(sid);
     ingre.setText(ingerdi);
-    met.setText(methi);
+
+    String[] parts = methi.split("\\.",3); // escape .
+    String part1 = parts[0]+parts[1];
+    String part2 = parts[2];
+         met.setText(part1+".\n\n"+part2);
     tad.setText(adio);
     tvd.setText(vide);
     timad.setText(imag);
-
     ttv.setText(favonn);
 //    Picasso.with(this).load(imag).fit().error(R.drawable.load).fit().into(maima);
 
@@ -247,10 +248,7 @@ tsidi.setText(sid);
     public void onBackPressed() {
         super.onBackPressed();
         mediaplayer.stop();
-        Intent intent=new Intent(DetailsActivity.this,HomeScreen.class);
-        startActivity(intent);
-        finish();
-
+         finish();
     }
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event)  {
@@ -386,7 +384,7 @@ tsidi.setText(sid);
     }
     public void favinsert(final String uid, final String sidin)
     {
-        StringRequest stringRequest =new StringRequest(Request.Method.POST, "http://vigneshintech.tk/askchitvish/androidadmin/favin.php", new Response.Listener<String>() {
+        StringRequest stringRequest =new StringRequest(Request.Method.POST, "http://gettalentsapp.com/vignesh2514/askchitvish/androadmin/favin.php", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
 
@@ -410,7 +408,7 @@ tsidi.setText(sid);
     }
     public void favdel(final String uid, final String sidin )
     {
-        StringRequest stringRequest =new StringRequest(Request.Method.POST, "http://vigneshintech.tk/askchitvish/androidadmin/favdel.php", new Response.Listener<String>() {
+        StringRequest stringRequest =new StringRequest(Request.Method.POST, "http://gettalentsapp.com/vignesh2514/askchitvish/androadmin/favdel.php", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
 
@@ -433,7 +431,7 @@ Map<String,String> params=new HashMap<String, String>();
     }
     public void recme(final String uid, final String sidin )
     {
-        StringRequest stringRequest =new StringRequest(Request.Method.POST, "http://vigneshintech.tk/askchitvish/androidadmin/recme.php", new Response.Listener<String>() {
+        StringRequest stringRequest =new StringRequest(Request.Method.POST, "http://gettalentsapp.com/vignesh2514/askchitvish/androadmin/recme.php", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
 
