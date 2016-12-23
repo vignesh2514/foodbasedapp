@@ -176,7 +176,7 @@ public class HomeScreen extends AppCompatActivity
                     }
                 });
             } else {
-                Toast.makeText(getApplicationContext(), "Internet connection is too slow for process.Please try again later", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Internet connection is too slow for process.Please try again later!", Toast.LENGTH_SHORT).show();
             }
         }
 

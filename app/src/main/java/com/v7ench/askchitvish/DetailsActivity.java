@@ -87,15 +87,25 @@ tsidi=(TextView) findViewById(R.id.sidi);
 
        String strObj = getIntent().getStringExtra("subcatdetails");
         try {
-            JSONObject myJsonObj = null;
-            myJsonObj = new JSONObject(strObj);
-            String sid = myJsonObj.getString("id");
 
+           JSONObject myJsonObj = new JSONObject(strObj);
+            String sid = myJsonObj.getString("id");
+            String topic_name = myJsonObj.getString("topic_name");
+            String short_desc = myJsonObj.getString("short_desc");
+            String ingerdi=myJsonObj.getString("ingredients1");
+            String methi=myJsonObj.getString("method1");
+            String adio=myJsonObj.getString("audio");
+            String vide=myJsonObj.getString("video");
+            String imag=myJsonObj.getString("images");
+            String favonn=myJsonObj.getString("favon");
             getall(sid,uid);
+            addtextinview(sid,topic_name,short_desc,ingerdi,methi,adio,vide,imag,favonn);
+
         }
         catch (JSONException e) {
             e.printStackTrace();
         }
+        String favon=ttv.getText().toString();
         setTitle(topic_na.getText().toString());
         String acheck =tad.getText().toString();
         if (acheck.isEmpty())
@@ -128,7 +138,7 @@ ddns.setOnClickListener(
         }
 );
         final boolean[] showingF = {true};
-        String favon=ttv.getText().toString();
+
         if (favon.equals("Y"))
         {
             favori.setImageResource(R.drawable.like);
@@ -165,7 +175,6 @@ iim.setOnClickListener(new View.OnClickListener() {
         intent.putExtra("ima",aacg);
         intent.putExtra("topi",topic_na.getText().toString());
         startActivity(intent);
-
        // zoomImageFromThumb(iim, aacg);
 
     }
@@ -219,26 +228,20 @@ adi.setOnClickListener(new View.OnClickListener() {
 
     public void getall(final String sid, final String uid)
     {
-        StringRequest stringRequest =new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
+        StringRequest stringRequest =new StringRequest(Request.Method.GET, URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try {
                     JSONObject jObj = new JSONObject(response);
                     JSONObject user = jObj.getJSONObject("result");
-                    String topic_name = user.getString("topic_name");
-                    String short_desc = user.getString("short_desc");
                     String favonn=user.getString("favon");
-                    String ingerdi=user.getString("ingredients1");
-                    String methi=user.getString("method1");
-                    String adio=user.getString("audio");
-                    String vide=user.getString("video");
-                    String imag=user.getString("images");
-                    addtextinview(sid,topic_name,short_desc,ingerdi,methi,adio,vide,imag,favonn);
+               cmbl(favonn);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
 
             }
+
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
@@ -255,21 +258,26 @@ adi.setOnClickListener(new View.OnClickListener() {
         };
 AppController.getInstance().addToRequestQueue(stringRequest);
     }
+    public void cmbl(String favonn)
+    {
+        ttv.setText(favonn);
+    }
 
 public void addtextinview(String sid,String topic_name, String short_desc, String ingerdi, String methi,String adio,String vide, String imag,String favonn)
 {
     topic_na.setText(topic_name);
     //shor.setText(short_desc);
-tsidi.setText(sid);
+    tsidi.setText(sid);
     ingre.setText(ingerdi);
+    ttv.setText(favonn);
     String[] parts = methi.split("\\.",3); // escape .
     String part1 = parts[0]+parts[1];
     String part2 = parts[2];
-         met.setText(part1+".\n\n"+part2);
+    met.setText(part1+".\n\n"+part2);
     tad.setText(adio);
     tvd.setText(vide);
     timad.setText(imag);
-    ttv.setText(favonn);
+
 //    Picasso.with(this).load(imag).fit().error(R.drawable.load).fit().into(maima);
 
 }
@@ -281,15 +289,14 @@ tsidi.setText(sid);
     }
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event)  {
-        if (Integer.parseInt(android.os.Build.VERSION.SDK) > 5
-                && keyCode == KeyEvent.KEYCODE_BACK
-                && event.getRepeatCount() == 0) {
+        if (Integer.parseInt(android.os.Build.VERSION.SDK) > 5&& keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
             Log.d("CDA", "onKeyDown Called");
             onBackPressed();
             return true;
         }
         return super.onKeyDown(keyCode, event);
     }
+
     private void zoomImageFromThumb(final View thumbView, String imageResId) {
         // If there's an animation in progress, cancel it
         // immediately and proceed with this one.
