@@ -5,7 +5,7 @@
     android:id="@+id/content_imageload"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#1c1b1b"
+    android:background="#FFEBEE"
       app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.v7ench.askchitvish.Imageload"
     tools:showIn="@layout/activity_imageload">
@@ -13,7 +13,7 @@
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="300dp"
         android:padding="10dp"
         android:background="@drawable/load"
         android:layout_centerVertical="true"

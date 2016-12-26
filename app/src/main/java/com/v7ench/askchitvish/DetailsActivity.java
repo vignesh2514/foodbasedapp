@@ -268,12 +268,20 @@ public void addtextinview(String sid,String topic_name, String short_desc, Strin
     topic_na.setText(topic_name);
     //shor.setText(short_desc);
     tsidi.setText(sid);
+    ingerdi=ingerdi.replace("&amp;","&");
     ingre.setText(ingerdi);
     ttv.setText(favonn);
+    methi=methi.replace("&amp;","&");
+    if (methi.contains("\\."))
+    {
     String[] parts = methi.split("\\.",3); // escape .
     String part1 = parts[0]+parts[1];
     String part2 = parts[2];
-    met.setText(part1+".\n\n"+part2);
+        met.setText(part1+".\n\n"+part2);
+    }
+    else {
+        met.setText(methi);
+    }
     tad.setText(adio);
     tvd.setText(vide);
     timad.setText(imag);
