@@ -33,7 +33,7 @@ aacv=(ImageView) findViewById(R.id.iimmcc);
         setTitle(topic);
         String[] parts = image.split(","); // escape .
         String part1 = parts[0];
-        Picasso.with(this).load(part1).fit().error(R.drawable.load).fit().into(aacv);
+        Picasso.with(this).load(part1).error(R.drawable.load).fit().into(aacv);
     }
     @Override
     public void onBackPressed() {
