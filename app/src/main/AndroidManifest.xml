@@ -100,12 +100,22 @@
         <activity
             android:name=".Imageload"
             android:label="@string/title_activity_imageload"
-            android:screenOrientation="portrait"
             android:parentActivityName=".DetailsActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.v7ench.askchitvish.DetailsActivity" />
+        </activity>
+        <activity
+            android:name=".AllRecipes"
+            android:label="@string/title_activity_all_recipes"
+            android:parentActivityName=".HomeScreen"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.v7ench.askchitvish.HomeScreen" />
         </activity>
     </application>
 

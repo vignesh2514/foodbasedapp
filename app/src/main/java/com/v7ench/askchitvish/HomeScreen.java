@@ -17,6 +17,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,14 +43,16 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class HomeScreen extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     private ProgressDialog dialog;
     GridView cate_list;
-    public static final String PREF_USER_FIRST_TIME = "user_first_time";
+       public static final String PREF_USER_FIRST_TIME = "user_first_time";
     boolean isUserFirstTime;
+    private SQLiteHandler db;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,6 +79,10 @@ public class HomeScreen extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
         String url="http://gettalentsapp.com/vignesh2514/askchitvish/androadmin/catog.php";
         new JSONTask().execute(url);
+        db = new SQLiteHandler(getApplicationContext());
+        HashMap<String, String> user = db.getUserDetails();
+        final String uid = user.get("uid");
+
     }
     public static String FACEBOOK_URL = "https://www.facebook.com/askchitvish/";
     public static String FACEBOOK_PAGE_ID = "askchitvish";
@@ -94,6 +101,7 @@ public class HomeScreen extends AppCompatActivity
         catch (PackageManager.NameNotFoundException e) {
             return FACEBOOK_URL; //normal web url
         }
+
     }
     public class JSONTask extends AsyncTask<String,String, List<Categorieslist> > {
 
@@ -252,7 +260,14 @@ holder.menuname=(TextView) convertView.findViewById(R.id.cat_txt);
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
-        } else {
+        }
+//        else  if (searchView.isSearchOpen())
+//        {
+//            searchView.closeSearch();
+//            String url="http://gettalentsapp.com/vignesh2514/askchitvish/androadmin/catog.php";
+//            new JSONTask().execute(url);
+//        }
+        else {
             if (doubleBackToExitPressedOnce) {
                 Intent startMain = new Intent(Intent.ACTION_MAIN);
                 startMain.addCategory(Intent.CATEGORY_HOME);
@@ -330,5 +345,21 @@ holder.menuname=(TextView) convertView.findViewById(R.id.cat_txt);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.kikama, menu);
+            return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_search:
+                Intent intent = new Intent(HomeScreen.this, AllRecipes.class);
+                startActivity(intent);
+                break;
+        }
+            return super.onOptionsItemSelected(item);
+        }
 
 }
