@@ -62,7 +62,6 @@ public class HomeScreen extends AppCompatActivity
         if (isUserFirstTime)
             startActivity(introIntent);*/
         setContentView(R.layout.activity_home_screen);
-
         dialog = new ProgressDialog(this);
         dialog.setIndeterminate(true);
         dialog.setCancelable(false);
@@ -86,8 +85,6 @@ public class HomeScreen extends AppCompatActivity
     }
     public static String FACEBOOK_URL = "https://www.facebook.com/askchitvish/";
     public static String FACEBOOK_PAGE_ID = "askchitvish";
-
-    //method to get the right URL to use in the intent
     public String getFacebookPageURL(Context context) {
         PackageManager packageManager = context.getPackageManager();
         try {
@@ -99,7 +96,7 @@ public class HomeScreen extends AppCompatActivity
             }
         }
         catch (PackageManager.NameNotFoundException e) {
-            return FACEBOOK_URL; //normal web url
+            return FACEBOOK_URL;
         }
 
     }
