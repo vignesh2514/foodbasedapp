@@ -2,17 +2,21 @@ package com.v7ench.askchitvish;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
@@ -44,6 +48,9 @@ public class AllRecipes extends AppCompatActivity {
     MaterialSearchView searchView;
 ProgressBar progressBar;
     TextView gourl;
+
+    EditText searchme;
+    ImageButton clickser;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,37 +63,74 @@ ProgressBar progressBar;
         db = new SQLiteHandler(getApplicationContext());
         HashMap<String, String> user = db.getUserDetails();
         gourl=(TextView) findViewById(R.id.anc);
+        Intent intent = getIntent();
+        String getmeall = intent.getStringExtra("getme");
         final String uid = user.get("uid");
-        final String url = "http://gettalentsapp.com/vignesh2514/askchitvish/androadmin/orderit.php?uid="+uid;
+        final String url = "http://gettalentsapp.com/vignesh2514/askchitvish/androadmin/mainsercfi.php?uid="+uid+"&pompom="+getmeall;
         new JSONTask().execute(url);
-        searchView = (MaterialSearchView) findViewById(R.id.search_view);
-        searchView.setOnQueryTextListener(new MaterialSearchView.OnQueryTextListener() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Window window = getWindow();
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.setStatusBarColor(Color.parseColor("#971627"));
+        }
+//        searchView = (MaterialSearchView) findViewById(R.id.search_view);
+//        searchView.setOnQueryTextListener(new MaterialSearchView.OnQueryTextListener() {
+//            @Override
+//            public boolean onQueryTextSubmit(String query) {
+//                String url2 = "http://gettalentsapp.com/vignesh2514/askchitvish/androadmin/mainsercfi.php?uid="+uid+"&pompom="+query;
+//                new JSONTask().execute(url2);
+//                         return false;
+//            }
+//            @Override
+//            public boolean onQueryTextChange(String newText) {
+//                String url3 = "http://gettalentsapp.com/vignesh2514/askchitvish/androadmin/mainsercfi.php?uid="+uid+"&pompom="+newText;
+//                new JSONTask().execute(url3);
+//                gourl.setText(url3);
+//                return false;
+//            }
+//        });
+//        searchView.setOnSearchViewListener(new MaterialSearchView.SearchViewListener() {
+//            @Override
+//            public void onSearchViewShown() {
+//                new JSONTask().execute(url);
+//            }
+//            @Override
+//            public void onSearchViewClosed() {
+//                String uandme =gourl.getText().toString();
+//                new JSONTask().execute(uandme);
+//            }
+//        });
+
+        searchme=(EditText) findViewById(R.id.searchedit);
+        searchme.setHint(getmeall);
+        clickser=(ImageButton) findViewById(R.id.imabutton);
+        clickser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String query=searchme.getText().toString();
+                String url2 = "http://gettalentsapp.com/vignesh2514/askchitvish/androadmin/mainsercfi.php?uid="+uid+"&pompom="+query;
+                new JSONTask().execute(url2);
+            }
+        });
+    }
+    /*private void searchclick(final String uid) {
+        searchVieww.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
                 String url2 = "http://gettalentsapp.com/vignesh2514/askchitvish/androadmin/mainsercfi.php?uid="+uid+"&pompom="+query;
                 new JSONTask().execute(url2);
-                         return false;
+
+                return false;
             }
+
             @Override
             public boolean onQueryTextChange(String newText) {
                 String url3 = "http://gettalentsapp.com/vignesh2514/askchitvish/androadmin/mainsercfi.php?uid="+uid+"&pompom="+newText;
-                new JSONTask().execute(url3);
-                gourl.setText(url3);
+               new JSONTask().execute(url3);
                 return false;
             }
         });
-        searchView.setOnSearchViewListener(new MaterialSearchView.SearchViewListener() {
-            @Override
-            public void onSearchViewShown() {
-                new JSONTask().execute(url);
-            }
-            @Override
-            public void onSearchViewClosed() {
-                String uandme =gourl.getText().toString();
-                new JSONTask().execute(uandme);
-            }
-        });
-    }
+    }*/
     public class JSONTask extends AsyncTask<String, String, List<Subcategory>> {
         @Override
         protected void onPreExecute() {
@@ -234,20 +278,20 @@ ProgressBar progressBar;
 
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.kikama, menu);
-        MenuItem item = menu.findItem(R.id.action_search);
-        searchView.setMenuItem(item);
-        return true;
-    }
-
-    @Override
-    public void onBackPressed() {
-        if (searchView.isSearchOpen()) {
-            searchView.closeSearch();
-        } else {
-            super.onBackPressed();
-        }
-    }
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        getMenuInflater().inflate(R.menu.kikama, menu);
+//        MenuItem item = menu.findItem(R.id.action_search);
+//        searchView.setMenuItem(item);
+//        return true;
+//    }
+//
+//    @Override
+//    public void onBackPressed() {
+//        if (searchView.isSearchOpen()) {
+//            searchView.closeSearch();
+//        } else {
+//            super.onBackPressed();
+//        }
+//    }
 }

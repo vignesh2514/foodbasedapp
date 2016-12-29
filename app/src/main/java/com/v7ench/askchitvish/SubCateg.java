@@ -2,17 +2,21 @@ package com.v7ench.askchitvish;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
@@ -43,12 +47,19 @@ public class SubCateg extends AppCompatActivity {
     MaterialSearchView searchView;
     ProgressBar progressBar;
     TextView gourl;
+    EditText searchme;
+    ImageButton clickser;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sub_categ);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Window window = getWindow();
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.setStatusBarColor(Color.parseColor("#971627"));
+        }
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         subcat_list=(ListView) findViewById(R.id.sub_cat);
 gourl=(TextView) findViewById(R.id.anc);
@@ -61,7 +72,7 @@ gourl=(TextView) findViewById(R.id.anc);
         final String url="http://gettalentsapp.com/vignesh2514/askchitvish/androadmin/sub_catog.php?catg_id="+cid+"&uid="+uid;
 
         new JSONTask().execute(url);
-        searchView = (MaterialSearchView) findViewById(R.id.search_view);
+       /* searchView = (MaterialSearchView) findViewById(R.id.search_view);
         searchView.setOnQueryTextListener(new MaterialSearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -89,6 +100,25 @@ gourl.setText(url2);
              String uandme =gourl.getText().toString();
                new JSONTask().execute(uandme);
                 //Do some magic
+            }
+        });*/
+        searchme=(EditText) findViewById(R.id.searchedit);
+
+        clickser=(ImageButton) findViewById(R.id.imabutton);
+        clickser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String query=searchme.getText().toString();
+                if (query.isEmpty())
+                {
+                    Toast.makeText(getApplicationContext(),"Please enter a keyword",Toast.LENGTH_SHORT).show();
+                }
+else {
+
+
+                    String url3 = "http://gettalentsapp.com/vignesh2514/askchitvish/androadmin/pom_pom.php?catg_id=" + cid + "&uid=" + uid + "&pompom=" + query;
+                    new JSONTask().execute(url3);
+                }
             }
         });
     }
@@ -240,7 +270,7 @@ progressBar.setVisibility(View.VISIBLE);
 
 
     }
-    @Override
+   /* @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.kikama, menu);
         MenuItem item = menu.findItem(R.id.action_search);
@@ -254,5 +284,5 @@ progressBar.setVisibility(View.VISIBLE);
         } else {
             super.onBackPressed();
         }
-    }
+    }*/
 }

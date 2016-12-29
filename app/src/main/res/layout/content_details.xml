@@ -17,7 +17,7 @@
         android:gravity="center_vertical"
         android:textColor="#ffffff"
         android:layout_width="180dp"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/sivna"
         android:layout_weight="1" />
     <LinearLayout
@@ -74,7 +74,6 @@
         android:layout_width="fill_parent"
         android:id="@+id/aacb"
 android:layout_above="@+id/ddn"
-
         android:layout_height="wrap_content"
         android:layout_below="@+id/aal"
         >
@@ -95,7 +94,6 @@ android:layout_above="@+id/ddn"
                 android:layout_height="wrap_content"
                 android:weightSum="2"
                 android:padding="2dp"
-
                 android:layout_centerHorizontal="true"
                 android:id="@+id/tadi">
 

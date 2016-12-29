@@ -16,5 +16,6 @@
     <string name="title_activity_newrecipe">New Recipe</string>
     <string name="title_activity_imageload">Imageload</string>
     <string name="title_activity_search_subcatog">Search_subcatog</string>
-    <string name="title_activity_all_recipes">AllRecipes</string>
+    <string name="title_activity_all_recipes">All Recipes</string>
+    <string name="searchhome">Search</string>
 </resources>

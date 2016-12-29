@@ -17,13 +17,14 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.GridView;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -53,6 +54,9 @@ public class HomeScreen extends AppCompatActivity
        public static final String PREF_USER_FIRST_TIME = "user_first_time";
     boolean isUserFirstTime;
     private SQLiteHandler db;
+
+    EditText searchme;
+    ImageButton clickser;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -81,8 +85,28 @@ public class HomeScreen extends AppCompatActivity
         db = new SQLiteHandler(getApplicationContext());
         HashMap<String, String> user = db.getUserDetails();
         final String uid = user.get("uid");
+searchme=(EditText) findViewById(R.id.searchedit);
+        clickser=(ImageButton) findViewById(R.id.imabutton);
+        clickser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String aall=searchme.getText().toString();
+                if (aall.isEmpty())
+                {
+                    Toast.makeText(getApplicationContext(),"Please enter a keyword",Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    Intent intent = new Intent(HomeScreen.this, AllRecipes.class);
+                    intent.putExtra("getme", aall);
+                    startActivity(intent);
+                }
+            }
+        });
 
     }
+
+
+
     public static String FACEBOOK_URL = "https://www.facebook.com/askchitvish/";
     public static String FACEBOOK_PAGE_ID = "askchitvish";
     public String getFacebookPageURL(Context context) {
@@ -342,21 +366,5 @@ holder.menuname=(TextView) convertView.findViewById(R.id.cat_txt);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.kikama, menu);
-            return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.action_search:
-                Intent intent = new Intent(HomeScreen.this, AllRecipes.class);
-                startActivity(intent);
-                break;
-        }
-            return super.onOptionsItemSelected(item);
-        }
 
 }
