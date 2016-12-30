@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "754893902666",
+    "firebase_url": "https://askchitvish-1b645.firebaseio.com",
+    "project_id": "askchitvish-1b645",
+    "storage_bucket": "askchitvish-1b645.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:754893902666:android:9977d8e853295def",
+        "android_client_info": {
+          "package_name": "com.v7ench.askchitvish"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "754893902666-1jjacoaavsdrg5ap09naoeqkdpm2jbr0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCOQSMByBNZ99WG4VQmPrK7SuUbwvf9Wo8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

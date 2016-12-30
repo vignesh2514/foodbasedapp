@@ -29,6 +29,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.gson.Gson;
 import com.squareup.picasso.Picasso;
 
@@ -54,18 +55,14 @@ public class HomeScreen extends AppCompatActivity
        public static final String PREF_USER_FIRST_TIME = "user_first_time";
     boolean isUserFirstTime;
     private SQLiteHandler db;
-
     EditText searchme;
     ImageButton clickser;
+    private FirebaseAnalytics mFirebaseAnalytics;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-       /* isUserFirstTime = Boolean.valueOf(Utils.readSharedSetting(HomeScreen.this, PREF_USER_FIRST_TIME, "true"));
-        Intent introIntent = new Intent(HomeScreen.this, PagerActivity.class);
-        introIntent.putExtra(PREF_USER_FIRST_TIME, isUserFirstTime);
-        if (isUserFirstTime)
-            startActivity(introIntent);*/
         setContentView(R.layout.activity_home_screen);
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
         dialog = new ProgressDialog(this);
         dialog.setIndeterminate(true);
         dialog.setCancelable(false);
