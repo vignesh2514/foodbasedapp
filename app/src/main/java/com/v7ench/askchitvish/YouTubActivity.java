@@ -35,6 +35,7 @@ public class YouTubActivity extends YouTubeBaseActivity {
             @Override
             public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
                 youTubePlayer.cueVideo(vvc);
+                youTubePlayer.setFullscreen(true);
             }
 
             @Override

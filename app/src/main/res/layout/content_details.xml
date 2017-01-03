@@ -96,7 +96,24 @@ android:layout_above="@+id/ddn"
                 android:padding="2dp"
                 android:layout_centerHorizontal="true"
                 android:id="@+id/tadi">
-
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textSize="15sp"
+    android:padding="5dp"
+    android:id="@+id/tag_line"
+    android:layout_gravity="center"
+    android:textColor="#000"
+    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/servings"
+                    android:padding="5dp"
+                    android:textSize="15sp"
+                    android:layout_gravity="center"
+                    android:textColor="#000"
+                    />
                 <include layout="@layout/ingre"
                     android:layout_height="wrap_content"
                     android:layout_margin="2dp"
@@ -159,20 +176,20 @@ android:layout_above="@+id/ddn"
     android:id="@+id/ddn"
     android:layout_alignParentBottom="true"
     android:background="@drawable/strip"/>
-<RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_centerVertical="true"
-    android:layout_centerInParent="true"
-    android:id="@+id/aaaon"
-      android:layout_height="250dp">
+<!--<RelativeLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_centerVertical="true"-->
+    <!--android:layout_centerInParent="true"-->
+    <!--android:id="@+id/aaaon"-->
+      <!--android:layout_height="250dp">-->
 
-    <ImageView
-        android:id="@+id/expanded_image"
-        android:layout_width="match_parent"
-        android:padding="5dp"
-                 android:layout_height="200dp"
-        android:visibility="invisible"
-        android:contentDescription="Expanded image (touch to close)" />
+    <!--<ImageView-->
+        <!--android:id="@+id/expanded_image"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:padding="5dp"-->
+        <!--android:layout_height="200dp"-->
+        <!--android:visibility="invisible"-->
+        <!--android:contentDescription="Expanded image (touch to close)" />-->
 
-</RelativeLayout>
+<!--</RelativeLayout>-->
 </RelativeLayout>

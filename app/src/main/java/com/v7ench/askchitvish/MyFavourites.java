@@ -55,7 +55,6 @@ public class MyFavourites extends AppCompatActivity {
             }
         });
         subcat_list=(ListView) findViewById(R.id.sub_cat);
-
         dialog = new ProgressDialog(this);
         dialog.setIndeterminate(true);
         dialog.setCancelable(false);
@@ -63,7 +62,7 @@ public class MyFavourites extends AppCompatActivity {
         db = new SQLiteHandler(getApplicationContext());
         HashMap<String, String> user = db.getUserDetails();
         final String uid = user.get("uid");
-        String url="http://gettalentsapp.com/vignesh2514/askchitvish/androadmin/favouri.php?uid="+uid;
+        String url="http://gettalentsapp.com/askchitvish/androadmin/favouri.php?uid="+uid;
         new JSONTask().execute(url);
 
     }
@@ -138,11 +137,9 @@ public class MyFavourites extends AppCompatActivity {
             aad=(ImageView) findViewById(R.id.imageView2);
             TextView aasd=(TextView) findViewById(R.id.textView);
             if(movieModelList != null) {
-
                 MovieAdapter adapter = new MovieAdapter(getApplicationContext(), R.layout.list_cubcate, movieModelList);
                 subcat_list.setAdapter(adapter);
                 adapter.notifyDataSetChanged();
-
                 subcat_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -195,18 +192,14 @@ public class MyFavourites extends AppCompatActivity {
 
         @Override
         public View getView(final int position, View convertView, ViewGroup parent) {
-
             final ViewHolder holder  ;
-
             if(convertView == null){
-
                 convertView = inflater.inflate(resource,null);
                 holder = new ViewHolder();
                 holder.topic = (TextView)convertView.findViewById(R.id.topic_n);
                 holder.short_dec=(TextView) convertView.findViewById(R.id.short_d);
-//                holder.ima=(ImageView) convertView.findViewById(R.id.imavi);
+                holder.naming=(TextView) convertView.findViewById(R.id.namei);
                 convertView.setTag(holder);
-
             }
             else {
                 holder = (ViewHolder) convertView.getTag();
@@ -214,14 +207,12 @@ public class MyFavourites extends AppCompatActivity {
             Subcategory subcategory= movieModelList.get(position);
             holder.topic.setText(subcategory.getTopic_name());
             holder.short_dec.setText(subcategory.getShort_desc());
-//            Picasso.with(context).load(subcategory.getImages()).fit().error(R.drawable.load).fit().into(holder.ima);
+            holder.naming.setText(subcategory.getName());
             return convertView;
-
         }
-
         class ViewHolder{
             private ImageView ima;
-            private TextView topic,short_dec;
+            private TextView topic,short_dec,naming;
 
 
         }

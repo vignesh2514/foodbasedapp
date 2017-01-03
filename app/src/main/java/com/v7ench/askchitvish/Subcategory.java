@@ -22,6 +22,7 @@ public class Subcategory implements Parcelable{
     private String audio;
     private String video;
     private String favon;
+private  String name;
 
     public String getId() {
         return id;
@@ -135,6 +136,14 @@ public class Subcategory implements Parcelable{
         this.favon = favon;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public static Creator<Subcategory> getCREATOR() {
         return CREATOR;
     }
@@ -154,6 +163,7 @@ public class Subcategory implements Parcelable{
         audio = in.readString();
         video = in.readString();
         favon = in.readString();
+        name = in.readString();
     }
 
     @Override
@@ -172,6 +182,7 @@ public class Subcategory implements Parcelable{
         dest.writeString(audio);
         dest.writeString(video);
         dest.writeString(favon);
+        dest.writeString(name);
     }
 
     @Override

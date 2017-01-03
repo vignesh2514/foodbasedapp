@@ -14,13 +14,7 @@ public class Splash2 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash2);
-//        final Context context=this;
-//        GifImageButton gib = new GifImageButton(context);
-//        setContentView(gib);
-//        gib.setImageResource(R.drawable.cooking_pot);
-//        final MediaController mc = new MediaController(context);
-//        mc.setMediaPlayer((GifDrawable)gib.getDrawable());
-//        mc.setAnchorView(gib);
+
         db = new SQLiteHandler(getApplicationContext());
         String uid= UUID.randomUUID().toString();
         db.addUser(uid);

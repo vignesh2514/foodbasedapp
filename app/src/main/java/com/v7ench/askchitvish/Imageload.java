@@ -7,12 +7,11 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
-import android.widget.ImageView;
-
-import com.squareup.picasso.Picasso;
+import android.webkit.WebView;
 
 public class Imageload extends AppCompatActivity {
-ImageView aacv;
+
+    WebView mywebview;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,14 +25,13 @@ ImageView aacv;
                 onBackPressed();
             }
         });
-aacv=(ImageView) findViewById(R.id.iimmcc);
         Intent intent = getIntent();
         String image = intent.getStringExtra("ima");
         String topic = intent.getStringExtra("topi");
         setTitle(topic);
-        String[] parts = image.split(","); // escape .
-        String part1 = parts[0];
-        Picasso.with(this).load(part1).error(R.drawable.load).fit().into(aacv);
+         mywebview = (WebView) findViewById(R.id.webme);
+        mywebview.getSettings().setJavaScriptEnabled(true);
+        mywebview.loadUrl("http://gettalentsapp.com/askchitvish/androadmin/slider.php?id="+image);
     }
     @Override
     public void onBackPressed() {

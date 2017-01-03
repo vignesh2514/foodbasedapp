@@ -56,16 +56,12 @@
             android:name=".YouTubActivity"
             android:label="@string/title_activity_you_tub"
             android:parentActivityName=".DetailsActivity"
-            android:screenOrientation="portrait"
+            android:screenOrientation="landscape"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.v7ench.askchitvish.DetailsActivity" />
         </activity>
-        <activity
-            android:name=".PagerActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Trending"
             android:label="@string/title_activity_trending"

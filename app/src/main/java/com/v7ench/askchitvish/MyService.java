@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.media.RingtoneManager;
 import android.net.Uri;
+import android.os.Build;
 import android.support.v7.app.NotificationCompat;
 
 import com.google.firebase.messaging.FirebaseMessagingService;
@@ -26,7 +27,11 @@ public class MyService extends FirebaseMessagingService {
         notifica.setOnlyAlertOnce(true);
         Uri alarmSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         notifica.setSound(alarmSound);
-        notifica.setSmallIcon(R.drawable.ic_stat_name);
+        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            notifica.setSmallIcon(R.drawable.ic_stat_name);
+        } else {
+            notifica.setSmallIcon(R.mipmap.ic_launcher);
+        }
         notifica.setContentIntent(pendingIntent);
         NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         notificationManager.notify(0,notifica.build());

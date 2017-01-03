@@ -69,41 +69,9 @@ gourl=(TextView) findViewById(R.id.anc);
         db = new SQLiteHandler(getApplicationContext());
         HashMap<String, String> user = db.getUserDetails();
         final String uid = user.get("uid");
-        final String url="http://gettalentsapp.com/vignesh2514/askchitvish/androadmin/sub_catog.php?catg_id="+cid+"&uid="+uid;
-
+        final String url="http://gettalentsapp.com/askchitvish/androadmin/sub_catog.php?catg_id="+cid+"&uid="+uid;
         new JSONTask().execute(url);
-       /* searchView = (MaterialSearchView) findViewById(R.id.search_view);
-        searchView.setOnQueryTextListener(new MaterialSearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                   String url2="http://gettalentsapp.com/vignesh2514/askchitvish/androadmin/pom_pom.php?catg_id="+cid+"&uid="+uid+"&pompom="+query;
-                 new JSONTask().execute(url2);
-gourl.setText(url2);
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                String url3="http://gettalentsapp.com/vignesh2514/askchitvish/androadmin/pom_pom.php?catg_id="+cid+"&uid="+uid+"&pompom="+newText;
-                new JSONTask().execute(url3);
-                       return false;
-            }
-        });
-
-        searchView.setOnSearchViewListener(new MaterialSearchView.SearchViewListener() {
-            @Override
-            public void onSearchViewShown() {
-                new JSONTask().execute(url);
-            }
-            @Override
-            public void onSearchViewClosed() {
-             String uandme =gourl.getText().toString();
-               new JSONTask().execute(uandme);
-                //Do some magic
-            }
-        });*/
         searchme=(EditText) findViewById(R.id.searchedit);
-
         clickser=(ImageButton) findViewById(R.id.imabutton);
         clickser.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -114,9 +82,7 @@ gourl.setText(url2);
                     Toast.makeText(getApplicationContext(),"Please enter a keyword",Toast.LENGTH_SHORT).show();
                 }
 else {
-
-
-                    String url3 = "http://gettalentsapp.com/vignesh2514/askchitvish/androadmin/pom_pom.php?catg_id=" + cid + "&uid=" + uid + "&pompom=" + query;
+                    String url3 = "http://gettalentsapp.com/askchitvish/androadmin/pom_pom.php?catg_id=" + cid + "&uid=" + uid + "&pompom=" + query;
                     new JSONTask().execute(url3);
                 }
             }
@@ -247,6 +213,7 @@ progressBar.setVisibility(View.VISIBLE);
                 holder = new ViewHolder();
                 holder.topic = (TextView)convertView.findViewById(R.id.topic_n);
                 holder.short_dec=(TextView) convertView.findViewById(R.id.short_d);
+                holder.naming=(TextView) convertView.findViewById(R.id.namei);
 //                holder.ima=(ImageView) convertView.findViewById(R.id.imavi);
                 convertView.setTag(holder);
             }
@@ -256,6 +223,7 @@ progressBar.setVisibility(View.VISIBLE);
             Subcategory subcategory= movieModelList.get(position);
             holder.topic.setText(subcategory.getTopic_name());
             holder.short_dec.setText(subcategory.getShort_desc());
+            holder.naming.setText(subcategory.getName());
 //            Picasso.with(context).load(subcategory.getImages()).fit().error(R.drawable.load).fit().into(holder.ima);
             return convertView;
 
@@ -263,7 +231,7 @@ progressBar.setVisibility(View.VISIBLE);
 
         class ViewHolder{
             private ImageView ima;
-            private TextView topic,short_dec;
+            private TextView topic,short_dec,naming;
 
 
         }

@@ -61,7 +61,7 @@ public class RecentlyViewed extends AppCompatActivity {
         db = new SQLiteHandler(getApplicationContext());
         HashMap<String, String> user = db.getUserDetails();
         final String uid = user.get("uid");
-        String url="http://gettalentsapp.com/vignesh2514/askchitvish/androadmin/recentlist.php?uid="+uid;
+        String url="http://gettalentsapp.com/askchitvish/androadmin/recentlist.php?uid="+uid;
         new JSONTask().execute(url);
 
     }
@@ -201,6 +201,7 @@ public class RecentlyViewed extends AppCompatActivity {
                 holder.topic = (TextView)convertView.findViewById(R.id.topic_n);
                 holder.short_dec=(TextView) convertView.findViewById(R.id.short_d);
 //                holder.ima=(ImageView) convertView.findViewById(R.id.imavi);
+                holder.naming=(TextView) convertView.findViewById(R.id.namei);
                 convertView.setTag(holder);
 
             }
@@ -210,14 +211,14 @@ public class RecentlyViewed extends AppCompatActivity {
             Subcategory subcategory= movieModelList.get(position);
             holder.topic.setText(subcategory.getTopic_name());
             holder.short_dec.setText(subcategory.getShort_desc());
-//            Picasso.with(context).load(subcategory.getImages()).fit().error(R.drawable.load).fit().into(holder.ima);
+            holder.naming.setText(subcategory.getName());
             return convertView;
 
         }
 
         class ViewHolder{
             private ImageView ima;
-            private TextView topic,short_dec;
+            private TextView topic,short_dec,naming;
 
 
         }

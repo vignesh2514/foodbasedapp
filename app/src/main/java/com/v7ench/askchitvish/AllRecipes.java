@@ -66,41 +66,13 @@ ProgressBar progressBar;
         Intent intent = getIntent();
         String getmeall = intent.getStringExtra("getme");
         final String uid = user.get("uid");
-        final String url = "http://gettalentsapp.com/vignesh2514/askchitvish/androadmin/mainsercfi.php?uid="+uid+"&pompom="+getmeall;
+        final String url = "http://gettalentsapp.com/askchitvish/androadmin/mainsercfi.php?uid="+uid+"&pompom="+getmeall;
         new JSONTask().execute(url);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getWindow();
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
             window.setStatusBarColor(Color.parseColor("#971627"));
         }
-//        searchView = (MaterialSearchView) findViewById(R.id.search_view);
-//        searchView.setOnQueryTextListener(new MaterialSearchView.OnQueryTextListener() {
-//            @Override
-//            public boolean onQueryTextSubmit(String query) {
-//                String url2 = "http://gettalentsapp.com/vignesh2514/askchitvish/androadmin/mainsercfi.php?uid="+uid+"&pompom="+query;
-//                new JSONTask().execute(url2);
-//                         return false;
-//            }
-//            @Override
-//            public boolean onQueryTextChange(String newText) {
-//                String url3 = "http://gettalentsapp.com/vignesh2514/askchitvish/androadmin/mainsercfi.php?uid="+uid+"&pompom="+newText;
-//                new JSONTask().execute(url3);
-//                gourl.setText(url3);
-//                return false;
-//            }
-//        });
-//        searchView.setOnSearchViewListener(new MaterialSearchView.SearchViewListener() {
-//            @Override
-//            public void onSearchViewShown() {
-//                new JSONTask().execute(url);
-//            }
-//            @Override
-//            public void onSearchViewClosed() {
-//                String uandme =gourl.getText().toString();
-//                new JSONTask().execute(uandme);
-//            }
-//        });
-
         searchme=(EditText) findViewById(R.id.searchedit);
         searchme.setHint(getmeall);
         clickser=(ImageButton) findViewById(R.id.imabutton);
@@ -113,24 +85,7 @@ ProgressBar progressBar;
             }
         });
     }
-    /*private void searchclick(final String uid) {
-        searchVieww.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                String url2 = "http://gettalentsapp.com/vignesh2514/askchitvish/androadmin/mainsercfi.php?uid="+uid+"&pompom="+query;
-                new JSONTask().execute(url2);
 
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                String url3 = "http://gettalentsapp.com/vignesh2514/askchitvish/androadmin/mainsercfi.php?uid="+uid+"&pompom="+newText;
-               new JSONTask().execute(url3);
-                return false;
-            }
-        });
-    }*/
     public class JSONTask extends AsyncTask<String, String, List<Subcategory>> {
         @Override
         protected void onPreExecute() {
@@ -255,6 +210,7 @@ ProgressBar progressBar;
                 holder = new ViewHolder();
                 holder.topic = (TextView) convertView.findViewById(R.id.topic_n);
                 holder.short_dec = (TextView) convertView.findViewById(R.id.short_d);
+                holder.naming=(TextView) convertView.findViewById(R.id.namei);
 //                holder.ima=(ImageView) convertView.findViewById(R.id.imavi);
                 convertView.setTag(holder);
             } else {
@@ -263,6 +219,7 @@ ProgressBar progressBar;
             Subcategory subcategory = movieModelList.get(position);
             holder.topic.setText(subcategory.getTopic_name());
             holder.short_dec.setText(subcategory.getShort_desc());
+            holder.naming.setText(subcategory.getName());
 //            Picasso.with(context).load(subcategory.getImages()).fit().error(R.drawable.load).fit().into(holder.ima);
             return convertView;
 
@@ -270,7 +227,7 @@ ProgressBar progressBar;
 
         class ViewHolder {
             private ImageView ima;
-            private TextView topic, short_dec;
+            private TextView topic, short_dec,naming;
 
 
         }
@@ -278,20 +235,4 @@ ProgressBar progressBar;
 
     }
 
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        getMenuInflater().inflate(R.menu.kikama, menu);
-//        MenuItem item = menu.findItem(R.id.action_search);
-//        searchView.setMenuItem(item);
-//        return true;
-//    }
-//
-//    @Override
-//    public void onBackPressed() {
-//        if (searchView.isSearchOpen()) {
-//            searchView.closeSearch();
-//        } else {
-//            super.onBackPressed();
-//        }
-//    }
 }

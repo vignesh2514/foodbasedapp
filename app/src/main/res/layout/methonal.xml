@@ -7,7 +7,7 @@
     <TextView
         android:text="Method"
         android:gravity="center"
-        android:textColor="#2d2d2d"
+        android:textColor="#000"
         android:textSize="18sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -29,8 +29,8 @@
         <TextView
 
             android:padding="5dp"
-                     android:textSize="15sp"
-            android:textColor="#2d2d2d"
+            android:textSize="15sp"
+            android:textColor="#000"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/methditext" />

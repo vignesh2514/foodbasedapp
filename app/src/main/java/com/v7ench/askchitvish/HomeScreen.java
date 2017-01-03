@@ -2,16 +2,17 @@ package com.v7ench.askchitvish;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -58,6 +59,7 @@ public class HomeScreen extends AppCompatActivity
     EditText searchme;
     ImageButton clickser;
     private FirebaseAnalytics mFirebaseAnalytics;
+    AlertDialog.Builder builder;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,8 +79,29 @@ public class HomeScreen extends AppCompatActivity
         toggle.syncState();
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        String url="http://gettalentsapp.com/vignesh2514/askchitvish/androadmin/catog.php";
+        String url="http://gettalentsapp.com/askchitvish/androadmin/catog.php";
         new JSONTask().execute(url);
+        builder = new AlertDialog.Builder(
+                HomeScreen.this);
+        builder.setTitle("Exit");
+        builder.setMessage("Are you sure you want to EXIT?");
+        builder.setNegativeButton("Cancel",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog,
+                                        int which) {
+
+                    }
+                });
+        builder.setPositiveButton("Ok",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog,
+                                        int which) {
+                        Intent startMain = new Intent(Intent.ACTION_MAIN);
+                        startMain.addCategory(Intent.CATEGORY_HOME);
+                        startMain.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(startMain);
+                    }
+                });
         db = new SQLiteHandler(getApplicationContext());
         HashMap<String, String> user = db.getUserDetails();
         final String uid = user.get("uid");
@@ -158,7 +181,6 @@ searchme=(EditText) findViewById(R.id.searchedit);
                         Categorieslist categorieslist = gson.fromJson(finalObject.toString(), Categorieslist.class);
                         movieModelList.add(categorieslist);
                     }
-
                 }
                 return movieModelList;
 
@@ -272,35 +294,16 @@ holder.menuname=(TextView) convertView.findViewById(R.id.cat_txt);
 
     }
 
-    Boolean doubleBackToExitPressedOnce = false;
+
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         }
-//        else  if (searchView.isSearchOpen())
-//        {
-//            searchView.closeSearch();
-//            String url="http://gettalentsapp.com/vignesh2514/askchitvish/androadmin/catog.php";
-//            new JSONTask().execute(url);
-//        }
         else {
-            if (doubleBackToExitPressedOnce) {
-                Intent startMain = new Intent(Intent.ACTION_MAIN);
-                startMain.addCategory(Intent.CATEGORY_HOME);
-                startMain.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(startMain);
-            }
-            this.doubleBackToExitPressedOnce = true;
-            Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
-            new Handler().postDelayed(new Runnable() {
+          builder.show();
 
-                @Override
-                public void run() {
-                    doubleBackToExitPressedOnce=false;
-                }
-            }, 2000);
         }
     }
     @Override
