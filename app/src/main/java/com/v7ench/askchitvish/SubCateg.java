@@ -49,6 +49,7 @@ public class SubCateg extends AppCompatActivity {
     TextView gourl;
     EditText searchme;
     ImageButton clickser;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,11 +67,15 @@ gourl=(TextView) findViewById(R.id.anc);
         progressBar =(ProgressBar) findViewById(R.id.progressBar2);
         Intent details=getIntent();
       final String cid=details.getStringExtra("id");
+        String catt_nam=details.getStringExtra("cat_name");
+        setTitle(catt_nam);
+
         db = new SQLiteHandler(getApplicationContext());
         HashMap<String, String> user = db.getUserDetails();
         final String uid = user.get("uid");
         final String url="http://gettalentsapp.com/askchitvish/androadmin/sub_catog.php?catg_id="+cid+"&uid="+uid;
         new JSONTask().execute(url);
+
         searchme=(EditText) findViewById(R.id.searchedit);
         clickser=(ImageButton) findViewById(R.id.imabutton);
         clickser.setOnClickListener(new View.OnClickListener() {
@@ -84,6 +89,7 @@ gourl=(TextView) findViewById(R.id.anc);
 else {
                     String url3 = "http://gettalentsapp.com/askchitvish/androadmin/pom_pom.php?catg_id=" + cid + "&uid=" + uid + "&pompom=" + query;
                     new JSONTask().execute(url3);
+
                 }
             }
         });

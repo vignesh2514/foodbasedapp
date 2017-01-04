@@ -10,14 +10,66 @@
     tools:context="com.v7ench.askchitvish.Aboutus"
     tools:showIn="@layout/activity_aboutus">
 
-    <ImageView
+    <ScrollView
         android:layout_width="wrap_content"
-        android:layout_height="230dp"
-        android:background="@drawable/about_rev"
+        android:layout_height="wrap_content"
+android:id="@+id/acbnm"
+android:scrollbars="none"
+        android:padding="5dp"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/imageView3" />
+        android:layout_centerHorizontal="true">
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/opennew"
+        android:orientation="vertical"
+        >
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/about_us"
+    android:padding="8dp"
+    android:textColor="#111"
+    android:textSize="24sp"
+    android:id="@+id/textView3" />
+
+    <ImageView
+        android:layout_width="299dp"
+        android:layout_height="320dp"
+
+        android:background="@drawable/i_1"
+                android:id="@+id/imageView3" />
+    </LinearLayout>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/bounceme"
+                android:lineSpacingExtra="1dp"
+                android:gravity="fill_vertical"
+                android:textColor="#333"
+                android:textSize="14sp"
+                />
+
+
+
+</LinearLayout>
+    </ScrollView>
+
+    <!--   <ImageView
+           android:layout_width="wrap_content"
+           android:layout_height="230dp"
+           android:background="@drawable/about_rev"
+           android:layout_alignParentTop="true"
+           android:layout_centerHorizontal="true"
+           android:id="@+id/imageView3" />-->
+<!--
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -174,7 +226,9 @@
                     android:layout_weight="1" />
             </LinearLayout>
         </LinearLayout>
-    </ScrollView>
+
+
+    </ScrollView>-->
 
 
 </RelativeLayout>

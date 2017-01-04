@@ -53,7 +53,7 @@
                     android:id="@+id/short_d"
                     />
                 <TextView
-                    android:text="TextView"
+                    android:text=""
                     android:padding="3dp"
                     android:textSize="10sp"
                     android:textColor="#403e3e"

@@ -49,6 +49,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import static android.R.id.message;
+
 public class HomeScreen extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     private ProgressDialog dialog;
@@ -110,7 +112,7 @@ searchme=(EditText) findViewById(R.id.searchedit);
         clickser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String aall=searchme.getText().toString();
+                String aall=searchme.getText().toString().trim();
                 if (aall.isEmpty())
                 {
                     Toast.makeText(getApplicationContext(),"Please enter a keyword",Toast.LENGTH_SHORT).show();
@@ -219,6 +221,7 @@ searchme=(EditText) findViewById(R.id.searchedit);
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                         Categorieslist categorieslist = movieModelList.get(position);
                         Intent intent = new Intent(HomeScreen.this, SubCateg.class);
+                        intent.putExtra("cat_name",categorieslist.getDisplay_name());
                         intent.putExtra("id",Integer.toString( categorieslist.getId()));
                         startActivity(intent);
                     }
@@ -354,6 +357,13 @@ holder.menuname=(TextView) convertView.findViewById(R.id.cat_txt);
         else if (id == R.id.nav_about) {
             Intent intent = new Intent(HomeScreen.this,Aboutus.class);
             startActivity(intent);
+        }
+        else if (id == R.id.nav_fh) {
+            Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
+                    "mailto","askchitvishandro@gmail.com", null));
+            intent.putExtra(Intent.EXTRA_SUBJECT, "Feedback");
+            intent.putExtra(Intent.EXTRA_TEXT, message);
+            startActivity(Intent.createChooser(intent, "Choose an Email client :"));
         }
         else if (id==R.id.nav_fb)
         {
