@@ -43,6 +43,7 @@ TextView topic_na,shor,ingre,met;
     private SQLiteHandler db;
     TextView tagline,serving;
     String URL="http://gettalentsapp.com/askchitvish/androadmin/sub_catog_details.php";
+    TextView mTitle;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +51,7 @@ TextView topic_na,shor,ingre,met;
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        mTitle=(TextView) toolbar.findViewById(R.id.toolbar_title);
         topic_na=(TextView) findViewById(R.id.sivna);
 //        shor=(TextView) findViewById(R.id.sh);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -103,7 +105,8 @@ tsidi=(TextView) findViewById(R.id.sidi);
             e.printStackTrace();
         }
         String favon=ttv.getText().toString();
-        setTitle(topic_na.getText().toString());
+        mTitle.setText(topic_na.getText().toString());
+setTitle("");
         String acheck =tad.getText().toString();
         if (acheck.isEmpty())
         {

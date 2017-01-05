@@ -62,7 +62,7 @@ public class HomeScreen extends AppCompatActivity
     ImageButton clickser;
     private FirebaseAnalytics mFirebaseAnalytics;
     AlertDialog.Builder builder;
-    @Override
+        @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_screen);
@@ -73,6 +73,7 @@ public class HomeScreen extends AppCompatActivity
         dialog.setMessage("Loading. Please wait...");
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+             setTitle("");
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         cate_list=(GridView) findViewById(R.id.cato_listv);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -360,7 +361,7 @@ holder.menuname=(TextView) convertView.findViewById(R.id.cat_txt);
         }
         else if (id == R.id.nav_fh) {
             Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
-                    "mailto","askchitvishandro@gmail.com", null));
+                    "mailto","appchitvish@gmail.com", null));
             intent.putExtra(Intent.EXTRA_SUBJECT, "Feedback");
             intent.putExtra(Intent.EXTRA_TEXT, message);
             startActivity(Intent.createChooser(intent, "Choose an Email client :"));
