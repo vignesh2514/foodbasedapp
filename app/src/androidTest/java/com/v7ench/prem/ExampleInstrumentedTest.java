@@ -1,4 +1,4 @@
-package com.v7ench.askchitvish;
+package com.v7ench.prem;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

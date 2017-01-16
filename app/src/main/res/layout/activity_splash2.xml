@@ -5,7 +5,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
     android:background="#e51f39"
-        tools:context="com.v7ench.askchitvish.Splash2">
+        tools:context="com.askchitvish.activity.prem.Splash2">
     <pl.droidsonroids.gif.GifImageView
         android:layout_width="200dp"
         android:layout_height="200dp"

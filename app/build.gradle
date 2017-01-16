@@ -4,11 +4,11 @@ android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
     defaultConfig {
-        applicationId "com.v7ench.askchitvish"
+        applicationId "com.askchitvish.activity.prem"
         minSdkVersion 16
         targetSdkVersion 25
-        versionCode 1
-        versionName "1.0"
+        versionCode 301001
+        versionName "3.2"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
         vectorDrawables.useSupportLibrary = true
@@ -28,7 +28,6 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile files('libs/YouTubeAndroidPlayerApi.jar')
-
     compile 'pl.droidsonroids.gif:android-gif-drawable:1.2.3'
     compile 'pl.droidsonroids.gif:android-gif-drawable:1.2.3'
     compile 'com.mcxiaoke.volley:library:1.0.19'
@@ -42,9 +41,8 @@ dependencies {
     compile 'com.google.firebase:firebase-messaging:10.0.1'
     compile 'com.google.firebase:firebase-core:10.0.1'
     compile 'com.github.bluejamesbond:textjustify-android:2.1.6'
+
     testCompile 'junit:junit:4.12'
 }
-
-
 
 apply plugin: 'com.google.gms.google-services'
