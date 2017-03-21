@@ -17,7 +17,7 @@
         <item
             android:id="@+id/nav_nrep"
             android:icon="@drawable/ic_cookie"
-            android:title="New Recipe" />
+            android:title="New Recipes" />
         <item
             android:id="@+id/nav_viewed"
             android:icon="@drawable/ic_visibility_black_24dp"

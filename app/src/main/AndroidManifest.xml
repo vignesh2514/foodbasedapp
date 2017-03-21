@@ -4,11 +4,10 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <application
-        android:name="com.askchitvish.activity.prem.AppController"
+        android:name=".AppController"
         android:allowBackup="true"
         android:hardwareAccelerated="false"
         android:icon="@mipmap/ic_launcher"
@@ -17,13 +16,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="com.askchitvish.activity.prem.HomeScreen"
-
+            android:name=".HomeScreen"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustNothing" />
         <activity
-            android:name="com.askchitvish.activity.prem.SplashActivity"
+            android:name=".SplashActivity"
             android:screenOrientation="portrait"
             android:theme="@style/SplashTheme">
             <intent-filter>
@@ -33,9 +31,9 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.askchitvish.activity.prem.SubCateg"
+            android:name=".SubCateg"
             android:label="@string/title_activity_sub_categ"
-            android:parentActivityName="com.askchitvish.activity.prem.HomeScreen"
+            android:parentActivityName=".HomeScreen"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
@@ -43,8 +41,8 @@
                 android:value="com.askchitvish.activity.prem.HomeScreen" />
         </activity>
         <activity
-            android:name="com.askchitvish.activity.prem.DetailsActivity"
-            android:parentActivityName="com.askchitvish.activity.prem.HomeScreen"
+            android:name=".DetailsActivity"
+            android:parentActivityName=".HomeScreen"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
@@ -52,9 +50,9 @@
                 android:value="com.askchitvish.activity.prem.HomeScreen" />
         </activity>
         <activity
-            android:name="com.askchitvish.activity.prem.YouTubActivity"
+            android:name=".YouTubActivity"
             android:label="@string/title_activity_you_tub"
-            android:parentActivityName="com.askchitvish.activity.prem.DetailsActivity"
+            android:parentActivityName=".DetailsActivity"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
@@ -62,33 +60,9 @@
                 android:value="com.askchitvish.activity.prem.DetailsActivity" />
         </activity>
         <activity
-            android:name="com.askchitvish.activity.prem.Trending"
+            android:name=".Trending"
             android:label="@string/title_activity_trending"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name="com.askchitvish.activity.prem.RecentlyViewed"
-            android:label="@string/title_activity_recently_viewed"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name="com.askchitvish.activity.prem.MyFavourites"
-            android:label="@string/title_activity_my_favourites"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name="com.askchitvish.activity.prem.Aboutus"
-            android:label="@string/title_activity_aboutus"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name="com.askchitvish.activity.prem.Splash2"
-            android:screenOrientation="portrait"
-            android:theme="@style/Spp" />
-        <activity
-            android:name="com.askchitvish.activity.prem.Newrecipe"
-            android:label="@string/title_activity_newrecipe"
-            android:parentActivityName="com.askchitvish.activity.prem.HomeScreen"
+            android:parentActivityName=".HomeScreen"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
@@ -96,9 +70,53 @@
                 android:value="com.askchitvish.activity.prem.HomeScreen" />
         </activity>
         <activity
-            android:name="com.askchitvish.activity.prem.Imageload"
+            android:name=".RecentlyViewed"
+            android:label="@string/title_activity_recently_viewed"
+            android:parentActivityName=".HomeScreen"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.askchitvish.activity.prem.HomeScreen" />
+        </activity>
+        <activity
+            android:name=".MyFavourites"
+            android:label="@string/title_activity_my_favourites"
+            android:parentActivityName=".HomeScreen"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.askchitvish.activity.prem.HomeScreen" />
+        </activity>
+        <activity
+            android:name=".Aboutus"
+            android:label="@string/title_activity_aboutus"
+            android:parentActivityName=".HomeScreen"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.askchitvish.activity.prem.HomeScreen" />
+        </activity>
+        <activity
+            android:name=".Splash2"
+            android:screenOrientation="portrait"
+            android:theme="@style/Spp" />
+        <activity
+            android:name=".Newrecipe"
+            android:label="@string/title_activity_newrecipe"
+            android:parentActivityName=".HomeScreen"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.askchitvish.activity.prem.HomeScreen" />
+        </activity>
+        <activity
+            android:name=".Imageload"
             android:label="@string/title_activity_imageload"
-            android:parentActivityName="com.askchitvish.activity.prem.DetailsActivity"
+            android:parentActivityName=".DetailsActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
@@ -106,9 +124,9 @@
                 android:value="com.askchitvish.activity.prem.DetailsActivity" />
         </activity>
         <activity
-            android:name="com.askchitvish.activity.prem.AllRecipes"
+            android:name=".AllRecipes"
             android:label="@string/title_activity_all_recipes"
-            android:parentActivityName="com.askchitvish.activity.prem.HomeScreen"
+            android:parentActivityName=".HomeScreen"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
@@ -116,19 +134,26 @@
                 android:value="com.askchitvish.activity.prem.HomeScreen" />
         </activity>
 
-        <service
-            android:name="com.askchitvish.activity.prem.MyFcmId">
+        <service android:name=".MyFcmId">
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
         </service>
-        <service
-            android:name="com.askchitvish.activity.prem.MyService"  >
+        <service android:name=".MyService">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
 
+        <activity
+            android:name=".FromNewRec"
+            android:label="@string/title_activity_from_new_rec"
+            android:parentActivityName=".Newrecipe"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.askchitvish.activity.prem.Newrecipe" />
+        </activity>
     </application>
 
 </manifest>
