@@ -93,11 +93,8 @@ gourl=(TextView) findViewById(R.id.anc);
         final String uid=pref.getString("uid", null);
        /* final String url="http://gettalentsapp.com/askchitvish/androadmin/sub_catog.php?catg_id="+cid+"&uid="+uid;
         new JSONTask().execute(url);*/
-
         searchme=(EditText) findViewById(R.id.searchedit);
         clickser=(ImageButton) findViewById(R.id.imabutton);
-
-
         c=new ConnectionDetector(SubCateg.this);
         if(c.isConnect()){
              String url="http://gettalentsapp.com/askchitvish/androadmin/sub_catog.php?catg_id="+cid+"&uid="+uid;
@@ -113,6 +110,7 @@ gourl=(TextView) findViewById(R.id.anc);
                     else {
                         String url3 = "http://gettalentsapp.com/askchitvish/androadmin/pom_pom.php?catg_id=" + cid + "&uid=" + uid + "&pompom=" + query;
                         new JSONTask().execute(url3);
+                        searchme.setText("");
 
                     }
                 }

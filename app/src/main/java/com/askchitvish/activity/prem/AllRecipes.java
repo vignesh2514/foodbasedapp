@@ -67,7 +67,6 @@ ImageView noim;
             window.setStatusBarColor(Color.parseColor("#971627"));
         }
         searchme=(EditText) findViewById(R.id.searchedit);
-        searchme.setHint(getmeall);
         clickser=(ImageButton) findViewById(R.id.imabutton);
         clickser.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,6 +74,7 @@ ImageView noim;
                 String query=searchme.getText().toString();
                 String url2 = "http://gettalentsapp.com/vignesh2514/askchitvish/androadmin/mainsercfi.php?uid="+uid+"&pompom="+query;
                 new JSONTask().execute(url2);
+                searchme.setText("");
             }
         });
     }
